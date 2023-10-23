@@ -1,10 +1,12 @@
-money_capital = 20000  # Подушка безопасности
 salary = 5000  # Ежемесячная зарплата
 spend = 6000  # Траты за первый месяц
-increase = 0.05  # Ежемесячный рост цен
+months = 10  # Количество месяцев, которое планируется протянуть без долгов
+increase = 0.03  # Ежемесячный рост цен
+i = 0
 x = 0
-while (money_capital + salary) > spend:
-    money_capital = money_capital + salary - spend
+for i in range(months):
+    x = x + salary - spend
     spend = spend * (increase + 1)
-    x += 1
-print("Количество месяцев, которое можно протянуть без долгов:", x)
+x *= -1
+y = round(x,2)
+print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", y)
